@@ -1,0 +1,57 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: myapp-rc
+  labels:
+    app: wmgd
+    tier: wmgd
+    type: wmgd
+    color: wmdg
+spec:
+  replicas: 4
+  selector:
+    app: wmgd
+    tier: wmgd
+    type: wmgd
+    color: wmdg
+  template:
+    metadata:
+      name: myapp-pod
+      labels:
+        app: wmgd
+        tier: wmgd
+        type: wmgd
+        color: wmdg
+    spec:
+      containers:
+      - name: nginx-container
+        image: nginx
+---
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: myapp-rc
+  labels:
+    app: vdgu
+    tier: vdgu
+    type: vdgu
+    color: vdgu
+spec:
+  replicas: 4
+  selector:
+    app: vdgu
+    tier: vdgu
+    type: vdgu
+    color: vdgu
+  template:
+    metadata:
+      name: myapp-pod
+      labels:
+        app: vdgu
+        tier: vdgu
+        type: vdgu
+        color: vdgu
+    spec:
+      containers:
+      - name: nginx-container
+        image: nginx

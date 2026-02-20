@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rolling-nginx
+spec:
+  replicas: 4
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: wmgd
+      tier: wmgd
+      type: wmgd
+      color: wmdg
+  template:
+    metadata:
+      labels:
+        app: wmgd
+        tier: wmgd
+        type: wmgd
+        color: wmdg
+    spec:
+      containers:
+      - image: nginx:1.16
+        name: nginx
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rolling-nginx
+spec:
+  replicas: 4
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: vdpu
+      tier: vdpu
+      type: vdpu
+      color: vdpu
+  template:
+    metadata:
+      labels:
+        app: vdpu
+        tier: vdpu
+        type: vdpu
+        color: vdpu
+    spec:
+      containers:
+      - image: nginx:1.16
+        name: nginx

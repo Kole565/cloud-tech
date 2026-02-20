@@ -1,0 +1,9 @@
+spec:
+  template:
+    metadata:
+      labels:
+#        app: vdpu
+ #       tier: vdpu
+        type: vdpu
+        color: vdpu
+

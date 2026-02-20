@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myapp-rs
+  labels:
+    app: wmgd
+    tier: wmgd
+    type: wmgd
+    color: wmdg
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: wmgd
+      tier: wmgd
+      type: wmgd
+      color: wmdg
+  template:
+    metadata:
+      name: myapp-pod
+      labels:
+        app: wmgd
+        tier: wmgd
+        type: wmgd
+        color: wmdg
+    spec:
+      containers:
+      - name: nginx-container
+        image: nginx
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myapp-rs
+  labels:
+    app: vdgu
+    tier: vdgu
+    type: vdgu
+    color: vdgu
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: vdgu
+      tier: vdgu
+      type: vdgu
+      color: vdgu
+  template:
+    metadata:
+      name: myapp-pod
+      labels:
+        app: vdgu
+        tier: vdgu
+        type: vdgu
+        color: vdgu
+    spec:
+      containers:
+      - name: nginx-container
+        image: nginx

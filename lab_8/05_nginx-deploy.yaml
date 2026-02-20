@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    type: wmgd
+  name: nginx-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      type: wmgd
+  template:
+    metadata:
+      labels:
+        type: wmgd
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        ports:
+        - containerPort: 80
+      nodeSelector:
+        color: wmgd

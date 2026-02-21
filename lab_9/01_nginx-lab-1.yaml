@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: wmgd
+    tier: wmgd
+    type: wmgd
+    color: wmdg
+  name: nginx-lab-1
+spec:
+  replicas: 7
+  selector:
+    matchLabels:
+      app: wmgd
+      tier: wmgd
+      type: wmgd
+      color: wmdg
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: wmgd
+        tier: wmgd
+        type: wmgd
+        color: wmdg
+    spec:
+      containers:
+      - image: nginx
+        name: nginx

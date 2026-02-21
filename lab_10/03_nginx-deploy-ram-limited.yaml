@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: wmgd
+    tier: wmgd
+    type: wmgd
+    color: wmdg
+  name: nginx-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wmgd
+      tier: wmgd
+      type: wmgd
+      color: wmdg
+  template:
+    metadata:
+      labels:
+        app: wmgd
+        tier: wmgd
+        type: wmgd
+        color: wmdg
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            memory: 500Mi
+          requests:
+            memory: 256Mi
